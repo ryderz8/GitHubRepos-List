@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_5sdp">
+
+    <ImageView
+        android:id="@+id/placeholder_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/repo"
+        android:layout_marginTop="@dimen/_6sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/repo_name_tv"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_3sdp"
+        android:text="1909"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toRightOf="@+id/placeholder_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description_tv"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:maxLines="5"
+        android:hint="description"
+        android:padding="@dimen/_3sdp"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintLeft_toRightOf="@+id/placeholder_iv"
+        app:layout_constraintTop_toBottomOf="@+id/repo_name_tv" />
+
+    <TextView
+        android:id="@+id/language_tv"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/_10sdp"
+        android:padding="4dp"
+        android:drawableLeft="@drawable/code"
+        android:drawablePadding="@dimen/_4sdp"
+        app:layout_constraintLeft_toRightOf="@+id/placeholder_iv"
+        app:layout_constraintTop_toBottomOf="@+id/description_tv"
+        tools:layout_editor_absoluteX="74dp" />
+
+    <TextView
+        android:id="@+id/issue_count_tv"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/_10sdp"
+        android:padding="4dp"
+        android:drawableLeft="@drawable/bug"
+        android:drawablePadding="@dimen/_4sdp"
+        app:layout_constraintLeft_toRightOf="@+id/language_tv"
+        app:layout_constraintTop_toBottomOf="@+id/description_tv"
+        tools:layout_editor_absoluteX="74dp" />
+
+    <TextView
+        android:id="@+id/watcher_count_tv"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:textSize="@dimen/_10sdp"
+        android:drawableLeft="@drawable/watcher"
+        android:drawablePadding="@dimen/_4sdp"
+        app:layout_constraintLeft_toRightOf="@+id/issue_count_tv"
+        app:layout_constraintTop_toBottomOf="@+id/description_tv"
+        tools:layout_editor_absoluteX="74dp" />
+
+
+</android.support.constraint.ConstraintLayout>
