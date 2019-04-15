@@ -19,14 +19,14 @@ import retrofit2.Response;
 /**
  * Created by amresh on 14/04/2019
  */
-public class GetGitReposInteractorImpl implements MainContract.getGithubRepoInteractor, MainContract.Repository {
+public class GetGitReposInteractorImpl implements MainContract.getGithubRepoInteractor {
 
     @Override
     public void getGithubReposList(final onFinishedListener onFinishedListener, int page) {
 
         GithubService service = GithubAPI.getRetrofitInstance().create(GithubService.class);
 
-        Call<List<GithubRepos>> call = service.getRepos(page, 6);
+        Call<List<GithubRepos>> call = service.getRepos(page, 15);
 
         Log.i("URL Called", call.request().url() + "");
 

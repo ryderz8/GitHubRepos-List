@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
         initScrollListener();
 
-        mainPresenter = new MainPresenterImpl(this, new GetGitReposInteractorImpl(), new GetGitReposInteractorImpl());
+        mainPresenter = new MainPresenterImpl(this, new GetGitReposInteractorImpl());
         mainPresenter.onRequestDataFromServer(currentPage);
 
     }

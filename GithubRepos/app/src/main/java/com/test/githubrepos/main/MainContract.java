@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by amresh on 14/04/2019
  */
-public class MainContract  {
+public class MainContract {
     /**
      * Call when user interact with the view and other when view OnDestroy()
      */
@@ -47,11 +47,8 @@ public class MainContract  {
         }
 
         void getGithubReposList(onFinishedListener onFinishedListener, int page);
-    }
 
-
-     interface Repository {
-
+        //Querying internal database
         interface onQueryFinishedListener {
             void onQueryFinish(List<GithubRepos> noticeArrayList);
 
@@ -63,5 +60,4 @@ public class MainContract  {
         void getRepoList(onQueryFinishedListener onQueryFinishedListener);
 
     }
-
 }

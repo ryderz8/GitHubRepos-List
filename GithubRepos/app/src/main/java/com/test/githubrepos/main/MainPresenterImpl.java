@@ -8,17 +8,14 @@ import java.util.List;
  * Created by amresh on 14/04/2019
  */
 public class MainPresenterImpl implements MainContract.presenter, MainContract.getGithubRepoInteractor.onFinishedListener,
-        MainContract.Repository.onQueryFinishedListener {
+        MainContract.getGithubRepoInteractor.onQueryFinishedListener{
 
     private MainContract.MainView mainView;
     private MainContract.getGithubRepoInteractor getNoticeInteractor;
-    private MainContract.Repository repository;
 
-    public MainPresenterImpl(MainContract.MainView mainView, MainContract.getGithubRepoInteractor noticeInteractor,
-                             MainContract.Repository repository) {
+    public MainPresenterImpl(MainContract.MainView mainView, MainContract.getGithubRepoInteractor noticeInteractor) {
         this.mainView = mainView;
         this.getNoticeInteractor = noticeInteractor;
-        this.repository = repository;
 
     }
 
@@ -35,7 +32,7 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
             }
             getNoticeInteractor.getGithubReposList(this, page);
         } else {
-            repository.getRepoList(this);
+            getNoticeInteractor.getRepoList(this);
         }
 
     }
@@ -46,7 +43,7 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
             mainView.setDataToRecyclerView(githubRepos);
             mainView.hideProgress();
         }
-        repository.insertOrUpdateRepos(githubRepos);
+        getNoticeInteractor.insertOrUpdateRepos(githubRepos);
     }
 
     @Override
