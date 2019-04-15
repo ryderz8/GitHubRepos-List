@@ -88,6 +88,8 @@ public class GetGitReposInteractorImpl implements MainContract.getGithubRepoInte
                 List<GithubRepos> githubRepos = localDB.copyFromRealm(gitReposHelpers);
 
                 onQueryFinishedListener.onQueryFinish(githubRepos);
+            }else{
+                onQueryFinishedListener.onQueryFailed("No data");
             }
 
         } catch (Exception e) {

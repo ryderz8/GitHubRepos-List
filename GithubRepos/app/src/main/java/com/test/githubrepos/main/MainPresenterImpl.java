@@ -66,9 +66,9 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
     }
 
     @Override
-    public void onQueryFailed(Throwable t) {
+    public void onQueryFailed(String errorMsg) {
         if (mainView != null) {
-            mainView.onResponseFailure(t);
+            mainView.onResponseFailure(new Exception(errorMsg));
             mainView.hideProgress();
         }
     }

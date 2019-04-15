@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 import com.test.githubrepos.BuildConfig;
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-
+        Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
                 if (!isLoading) {
                     if (linearLayoutManager != null && linearLayoutManager.
-                            findLastCompletelyVisibleItemPosition() == reposArrayList.size() - 1) {
+                            findLastCompletelyVisibleItemPosition() == reposArrayList.size() - 3) {
                         //bottom of list!
                         currentPage += 1;
                         loadMore();
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
         reposArrayList.add(null);
         recyclerView.post(() -> {
-                gitReposAdapter.notifyItemInserted(reposArrayList.size() - 1);
+            gitReposAdapter.notifyItemInserted(reposArrayList.size() - 1);
 
         });
         mainPresenter.onRequestDataFromServer(currentPage);
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         mainPresenter.onDestroy();
     }
 
-    private void initStetho(){
+    private void initStetho() {
         try {
             if (BuildConfig.DEBUG) {
                 Stetho.initialize(

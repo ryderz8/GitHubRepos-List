@@ -55,7 +55,7 @@ public class MainContract  {
         interface onQueryFinishedListener {
             void onQueryFinish(List<GithubRepos> noticeArrayList);
 
-            void onQueryFailed(Throwable t);
+            void onQueryFailed(String msg);
         }
 
         void insertOrUpdateRepos(List<GithubRepos> githubRepos);
