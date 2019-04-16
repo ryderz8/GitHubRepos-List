@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
         initScrollListener();
 
+        //initialising main presenter class
         mainPresenter = new MainPresenterImpl(this, new GetGitReposInteractorImpl());
         mainPresenter.onRequestDataFromServer(currentPage);
 
@@ -168,6 +169,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         mainPresenter.onDestroy();
     }
 
+    /**
+     * Added stetho to check the Realm DB
+     */
     private void initStetho() {
         try {
             if (BuildConfig.DEBUG) {

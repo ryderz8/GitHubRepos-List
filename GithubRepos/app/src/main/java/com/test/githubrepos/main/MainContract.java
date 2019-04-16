@@ -21,7 +21,7 @@ public class MainContract {
 
     /**
      * showProgress() and hideProgress() would be used for displaying and hiding the progressBar
-     * while the setDataToRecyclerView and onResponseFailure is fetched from the GetNoticeInteractorImpl class
+     * while the setDataToRecyclerView and onResponseFailure is fetched from the getGithubRepoInteractor class
      **/
     interface MainView {
         void showProgress();

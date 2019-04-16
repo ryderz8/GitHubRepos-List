@@ -11,11 +11,11 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
         MainContract.getGithubRepoInteractor.onQueryFinishedListener{
 
     private MainContract.MainView mainView;
-    private MainContract.getGithubRepoInteractor getNoticeInteractor;
+    private MainContract.getGithubRepoInteractor getGithubRepoInteractor;
 
-    public MainPresenterImpl(MainContract.MainView mainView, MainContract.getGithubRepoInteractor noticeInteractor) {
+    public MainPresenterImpl(MainContract.MainView mainView, MainContract.getGithubRepoInteractor githubRepoInteractor) {
         this.mainView = mainView;
-        this.getNoticeInteractor = noticeInteractor;
+        this.getGithubRepoInteractor = githubRepoInteractor;
 
     }
 
@@ -30,9 +30,9 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
             if (page == 0) {
                 mainView.showProgress();
             }
-            getNoticeInteractor.getGithubReposList(this, page);
+            getGithubRepoInteractor.getGithubReposList(this, page);
         } else {
-            getNoticeInteractor.getRepoList(this);
+            getGithubRepoInteractor.getRepoList(this);
         }
 
     }
@@ -43,7 +43,7 @@ public class MainPresenterImpl implements MainContract.presenter, MainContract.g
             mainView.setDataToRecyclerView(githubRepos);
             mainView.hideProgress();
         }
-        getNoticeInteractor.insertOrUpdateRepos(githubRepos);
+        getGithubRepoInteractor.insertOrUpdateRepos(githubRepos);
     }
 
     @Override
